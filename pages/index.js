@@ -1,26 +1,17 @@
+import React from 'react'
 import Head from 'next/head'
-import {addDoc, collection} from "firebase/firestore";
-import {firestore} from '../config/firebase'
+import {AuthContext, getProfile, signOut} from "../providers/authProvider";
+import Game from './game'
+import {useRouter} from 'next/router'
 
-const Home = () => {
+const Index = () => {
+	const {state, dispatch} = React.useContext(AuthContext)
+	// https://nextjs.org/docs/api-reference/next/router#userouter
+	const router = useRouter()
 
-	const testFirebase = async () => {
-		debugger;
-		try {
-
-			const docRef = await addDoc(collection(firestore, "users"), {
-				first: "Alan",
-				middle: "Mathison",
-				last: "Turing",
-				born: 1912
-			});
-
-			console.log("Document written with ID: ", docRef.id);
-		} catch (e) {
-			console.error("Error adding document: ", e);
-		}
+	if (state.account.uid) {
+		router.push('/game')
 	}
-
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -29,8 +20,7 @@ const Home = () => {
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 
-			<button onClick={testFirebase} className="bg-red-200">test</button>
 		</div>
 	)
 }
-export default Home
+export default Index
