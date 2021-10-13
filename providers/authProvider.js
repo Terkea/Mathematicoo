@@ -83,7 +83,7 @@ const AuthProvider = ({children}) => {
 				dispatch({type: 'LOGOUT'})
 			}
 		});
-		return test();
+
 	}, []);
 
 	return (

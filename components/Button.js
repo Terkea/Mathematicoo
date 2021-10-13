@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import React from "react";
 
-const Button = ({onClick, icon, text, style}) => {
+const Button = ({onClick, icon, text, style, children}) => {
 	return (
 		<motion.button
 			whileHover={{scale: 1.1}}
@@ -14,7 +14,7 @@ const Button = ({onClick, icon, text, style}) => {
 				<div className="col-span-1">
 					{icon}
 				</div>
-				<div className="col-span-2 pt-1.5">{text}</div>
+				<div className="col-span-2 pt-1.5">{text || children}</div>
 			</div>
 		</motion.button>
 	)
