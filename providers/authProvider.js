@@ -31,7 +31,7 @@ export const login = (email, password) => {
 
 export const register = (email, password, nickname) => {
 	return auth.createUserWithEmailAndPassword(email, password).then((res) => {
-		let data = {nickname}
+		let data = {nickname, highestScore: 0}
 		// create profile
 		firestore.collection(`profile`)
 			.doc(res.user.uid)

@@ -12,3 +12,5 @@ https://tailwindcss.com/docs/guides/nextjs
 - CSS Framework -> <b>Tailwindcss</b> -> https://tailwindcss.com/docs
 - Database -> Firebase -> https://firebase.google.com/docs/firestore
 - Set up firebase -> https://firebase.google.com/docs/cli#windows-npm
+- Vectors -> https://www.freepik.com/
+- Icons -> https://heroicons.com/

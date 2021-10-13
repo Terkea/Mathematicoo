@@ -1,14 +1,17 @@
 import Head from 'next/head'
+import Background from "../containers/Background";
 
 const Game = () => {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2">
+		<div>
 			<Head>
 				<title>Game</title>
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 
-			<button className="bg-red-200">game</button>
+			<Background>
+				<button className="bg-red-200">game</button>
+			</Background>
 		</div>
 	)
 }
