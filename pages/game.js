@@ -32,6 +32,15 @@ const Game = () => {
 	const [question, setQuestion] = React.useState(generateQuestion());
 	console.log(question)
 
+
+	// https://stackoverflow.com/a/62107926/8193864
+	React.useEffect(() => {
+		if (!state.account.uid) {
+			router.push('/');
+		}
+	}, [])
+
+
 	const checkAnswer = (e) => {
 		if (e.target.innerText == question.answer) {
 			//	next round
@@ -40,7 +49,10 @@ const Game = () => {
 		} else {
 			//	game over
 			setIsGameOver(true);
-			(state.profile.highestScore < round) && updateProfile({highestScore: round, nickname: state.profile.nickname})
+			(state.profile.highestScore < round) && updateProfile({
+				highestScore: round,
+				nickname: state.profile.nickname
+			})
 		}
 	}
 
@@ -66,7 +78,8 @@ const Game = () => {
 						<div className="text-red-400 text-3xl mb-30">I am sure you can do better than that!</div>
 
 						<Button onClick={startNewGame} text="Start a new Game" style="w-1/7 p-5 mt-3"/>
-						<Button onClick={() => router.push('/ladderboard')} text="Check the Ladderboard" style="w-1/7 p-5 mt-3"/>
+						<Button onClick={() => router.push('/ladderboard')} text="Check the Ladderboard"
+						        style="w-1/7 p-5 mt-3"/>
 
 					</>
 					:
@@ -82,7 +95,6 @@ const Game = () => {
 							})}
 						</div>
 					</>}
-
 
 			</Background>
 		</div>

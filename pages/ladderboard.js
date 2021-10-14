@@ -7,10 +7,16 @@ import Button from "../components/Button";
 import {useRouter} from "next/router";
 import Logo from "../components/Logo";
 
-
 const Ladderboard = () => {
-	const {state} = React.useContext(AuthContext)
-	const router = useRouter()
+	const router = useRouter();
+	const {state} = React.useContext(AuthContext);
+
+	// https://stackoverflow.com/a/62107926/8193864
+	React.useEffect(() => {
+		if (!state.account.uid) {
+			router.push('/');
+		}
+	}, [])
 
 	return (
 		<div>
