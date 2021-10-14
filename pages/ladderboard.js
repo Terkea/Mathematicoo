@@ -5,7 +5,6 @@ import LadderboardTable from "../components/LadderboardTable";
 import {AuthContext} from '../providers/authProvider'
 import Button from "../components/Button";
 import {useRouter} from "next/router";
-import {motion} from "framer-motion";
 import Logo from "../components/Logo";
 
 
@@ -22,24 +21,15 @@ const Ladderboard = () => {
 
 			<Background>
 				<Logo scale={2}/>
-				<div className="text-red-400 text-3xl mt-16">Your Best score is: {state.profile.highestScore}</div>
+				<div className="text-red-400 text-3xl mt-16">Your Best score
+					is: {state.profile.highestScore || 0}</div>
 				<div className="text-red-400 text-5xl mb-5">Ladderboard</div>
 
 				<div className="w-1/3">
 					<LadderboardTable/>
 				</div>
 
-				<motion.button
-					whileHover={{scale: 1.1}}
-					whileTap={{scale: 0.9}}
-					onClick={() => router.push('/game')}
-					className={`flex w-1/7 mt-3 bg-pink-500 text-center
-					        hover:bg-pink-600 hover:to-blue-600 focus:outline-none text-white text-2xl
-					        uppercase font-bold shadow-md rounded-lg mx-auto p-5 `}>
-					<div className="flex text-center">
-						Start a new Game
-					</div>
-				</motion.button>
+				<Button onClick={() => router.push('/game')} text="Start a new Game" style="w-1/7 p-5 mt-3"/>
 
 			</Background>
 		</div>

@@ -3,7 +3,6 @@ import Head from 'next/head'
 import {AuthContext} from "../providers/authProvider";
 import {useRouter} from 'next/router'
 import Background from "../containers/Background";
-import {motion} from "framer-motion"
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 
@@ -26,7 +25,6 @@ const Index = () => {
 
 			{/* https://www.freecodecamp.org/news/react-background-image-tutorial-how-to-set-backgroundimage-with-inline-css-style/ */}
 			<Background>
-
 				<Logo scale={2}/>
 
 				<Button onClick={() => router.push('/login')} text="Login"
@@ -35,10 +33,10 @@ const Index = () => {
 					        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
 					              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
 				        </svg>}
-				        style="mt-24"
+				        style="mt-24 w-52"
 				/>
 
-				<Button onClick={() => router.push('/register')} text="Register"
+				<Button onClick={() => router.push('/register')} text="Register" style="w-52 mt-3 "
 				        icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 20 20"
 				                   fill="currentColor">
 					        <path

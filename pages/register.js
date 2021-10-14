@@ -12,8 +12,7 @@ const Register = () => {
 	const [error, setError] = React.useState("")
 
 	const onSubmit = (data) => {
-		registerAccount(data.email, data.password, data.username + "#" +
-			Math.floor(1000 + Math.random() * 9000).toString()).then(() => {
+		registerAccount(data.email, data.password, data.nickname).then(() => {
 				router.push('/ladderboard')
 			})
 			.catch(e => {

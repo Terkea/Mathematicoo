@@ -1,6 +1,21 @@
 import TableRow from "./TableRow";
+import React from "react";
+import {firestore} from "../config/firebase";
+
 
 const LadderboardTable = () => {
+	const [users, setUsers] = React.useState([])
+	React.useEffect(() => {
+		const profileRef = firestore.collection("profile");
+		profileRef.get()
+			.then((querySnapshot) => {
+				querySnapshot.forEach((doc) => {
+					setUsers([...users, doc.data()])
+				});
+			});
+	}, [])
+
+	console.log(users)
 
 	return (
 		<table className="table-auto border-collapse w-full">
@@ -11,11 +26,9 @@ const LadderboardTable = () => {
 			</tr>
 			</thead>
 			<tbody className="text-sm font-normal text-gray-700">
-			<TableRow name="test" score="100" />
-			<TableRow name="test" score="100" />
-			<TableRow name="test" score="100" />
-			<TableRow name="test" score="100" />
-			<TableRow name="test" score="100" />
+			{users.map(i => {
+				return <TableRow name={i.nickname} score={i.highestScore} key={i}/>
+			})}
 			</tbody>
 		</table>
 	)
