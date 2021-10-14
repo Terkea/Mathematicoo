@@ -6,9 +6,14 @@
   "hosting": {
     "public": "out",
     "ignore": [
+      "**/src/**",
+      "**/.vscode/**",
+      ".firebase/**",
+      ".firebaserc",
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/public/**",
+      "**/.next/cache/**"
     ]
   },
   "storage": {
