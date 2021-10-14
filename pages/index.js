@@ -13,7 +13,7 @@ const Index = () => {
 	const router = useRouter()
 
 	if (state.account.uid) {
-		router.push('/game')
+		router.push('/ladderboard')
 	}
 
 	return (

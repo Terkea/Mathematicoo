@@ -14,7 +14,7 @@ const Register = () => {
 	const onSubmit = (data) => {
 		registerAccount(data.email, data.password, data.username + "#" +
 			Math.floor(1000 + Math.random() * 9000).toString()).then(() => {
-				router.push('/game')
+				router.push('/ladderboard')
 			})
 			.catch(e => {
 				setError(e.toString())

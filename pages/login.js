@@ -14,7 +14,7 @@ const Login = () => {
 	const onSubmit = (data) => {
 		login(data.email, data.password)
 			.then(() => {
-				router.push('/game')
+				router.push('/ladderboard')
 			})
 			.catch(e => {
 				setError(e.toString())
