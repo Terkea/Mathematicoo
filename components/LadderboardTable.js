@@ -5,17 +5,15 @@ import {firestore} from "../config/firebase";
 
 const LadderboardTable = () => {
 	const [users, setUsers] = React.useState([])
+	//https://firebase.google.com/docs/firestore/query-data/listen
 	React.useEffect(() => {
-		const profileRef = firestore.collection("profile");
-		profileRef.get()
-			.then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					setUsers([...users, doc.data()])
-				});
-			});
-	}, [])
+		firestore.collection("profile").onSnapshot((querySnapshot) => {
+			setUsers(querySnapshot.docs.map((doc) => {
+				return doc.data()
+			}))
+		})
 
-	console.log(users)
+	}, [])
 
 	return (
 		<table className="table-auto border-collapse w-full">
@@ -27,7 +25,7 @@ const LadderboardTable = () => {
 			</thead>
 			<tbody className="text-sm font-normal text-gray-700">
 			{users.map(i => {
-				return <TableRow name={i.nickname} score={i.highestScore} key={i}/>
+				return <TableRow name={i.nickname} score={i.highestScore} key={i.nickname}/>
 			})}
 			</tbody>
 		</table>
