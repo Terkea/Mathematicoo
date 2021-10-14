@@ -5,6 +5,12 @@
   },
   "hosting": {
     "public": "out",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "ignore": [
       "**/src/**",
       "**/.vscode/**",
