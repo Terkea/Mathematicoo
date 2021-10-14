@@ -6,6 +6,7 @@ import {AuthContext} from '../providers/authProvider'
 import Button from "../components/Button";
 import {useRouter} from "next/router";
 import {motion} from "framer-motion";
+import Logo from "../components/Logo";
 
 
 const Ladderboard = () => {
@@ -20,8 +21,9 @@ const Ladderboard = () => {
 			</Head>
 
 			<Background>
-				<div className="text-red-400 text-3xl m-3">Your Best score is: {state.profile.highestScore}</div>
-				<div className="text-red-400 text-5xl m-3">Ladderboard</div>
+				<Logo scale={2}/>
+				<div className="text-red-400 text-3xl mt-16">Your Best score is: {state.profile.highestScore}</div>
+				<div className="text-red-400 text-5xl mb-5">Ladderboard</div>
 
 				<div className="w-1/3">
 					<LadderboardTable/>

@@ -5,6 +5,7 @@ import {useRouter} from 'next/router'
 import Background from "../containers/Background";
 import {motion} from "framer-motion"
 import Button from "../components/Button";
+import Logo from "../components/Logo";
 
 
 const Index = () => {
@@ -26,12 +27,7 @@ const Index = () => {
 			{/* https://www.freecodecamp.org/news/react-background-image-tutorial-how-to-set-backgroundimage-with-inline-css-style/ */}
 			<Background>
 
-				<motion.div
-					animate={{scale: 2}}
-					transition={{duration: 0.5}}
-				>
-					<img src="/assets/hero.svg" alt="hero" style={{height: '150px'}}/>
-				</motion.div>
+				<Logo scale={2}/>
 
 				<Button onClick={() => router.push('/login')} text="Login"
 				        icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none"
