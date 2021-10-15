@@ -67,7 +67,6 @@ const Register = () => {
 								<div className="col-span-2 pt-1.5">Register</div>
 							</div>
 						</motion.button>
-
 					</motion.div>
 				</form>
 			</Background>

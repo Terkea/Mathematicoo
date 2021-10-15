@@ -11,6 +11,7 @@ const Ladderboard = () => {
 	const router = useRouter();
 	const {state} = React.useContext(AuthContext);
 
+	// IF THE USER IS NOT AUTHENTICATED REDIRECT HIM TO THE MAIN PAGE
 	// https://stackoverflow.com/a/62107926/8193864
 	React.useEffect(() => {
 		if (!state.account.uid) {
