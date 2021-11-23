@@ -8,6 +8,7 @@ const initialState = {
 	errors: [],
 }
 
+// ALL POSSIBLE ACTIONS
 const authReducer = (state, action) => {
 	switch (action.type) {
 		case 'REGISTER':
@@ -66,7 +67,7 @@ const AuthProvider = ({children}) => {
 	const [state, dispatch] = React.useReducer(authReducer, initialState)
 	const value = {state, dispatch}
 
-
+	// WHEN THE APP IS FIRST INITIALIZED CHECK FOR PREVIOUS SESSIONS AND UPDATE THE CONTEXT
 	React.useEffect(() => {
 		const test = auth.onAuthStateChanged(user => {
 			if (auth.currentUser) {

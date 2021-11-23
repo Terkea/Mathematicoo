@@ -10,7 +10,8 @@ import {login} from '../providers/authProvider';
 const Login = () => {
 	const router = useRouter();
 	const {register, handleSubmit, watch, formState: {errors}} = useForm();
-	const [error, setError] = React.useState("")
+	const [error, setError] = React.useState("");
+
 	const onSubmit = (data) => {
 		login(data.email, data.password)
 			.then(() => {
@@ -66,8 +67,6 @@ const Login = () => {
 						</motion.button>
 					</motion.div>
 				</form>
-
-
 			</Background>
 		</div>
 	)

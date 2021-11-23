@@ -12,6 +12,7 @@ const Index = () => {
 	// https://nextjs.org/docs/api-reference/next/router#userouter
 	const router = useRouter()
 
+	// IF THE USER IS LOGGED IN ALREADY REDIRECT HIM TO THE LADDERBOARD
 	if (state.account.uid) {
 		router.push('/ladderboard')
 	}
@@ -26,7 +27,6 @@ const Index = () => {
 			{/* https://www.freecodecamp.org/news/react-background-image-tutorial-how-to-set-backgroundimage-with-inline-css-style/ */}
 			<Background>
 				<Logo scale={2}/>
-
 				<Button onClick={() => router.push('/login')} text="Login"
 				        icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none"
 				                   viewBox="0 0 24 24" stroke="currentColor">
@@ -35,7 +35,6 @@ const Index = () => {
 				        </svg>}
 				        style="mt-24 w-52"
 				/>
-
 				<Button onClick={() => router.push('/register')} text="Register" style="w-52 mt-3 "
 				        icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 20 20"
 				                   fill="currentColor">

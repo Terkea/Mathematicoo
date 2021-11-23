@@ -7,6 +7,8 @@ import {useRouter} from "next/router";
 import Logo from "../components/Logo";
 
 
+// GENERATE A RANDOM QUESTION
+// RETURN AS AN OBJECT THAT HOLDS THE QUESTION, ANSWER AND A SCRAMBLED ARRAY WITH ALL THE POTENTIAL ANSWERS
 const generateQuestion = () => {
 	const randomSign = () => ["-", "+"][Math.floor(Math.random() * 2)];
 	const randomNumber = () => Math.floor(Math.random() * 1000).toString()
@@ -27,12 +29,14 @@ const generateQuestion = () => {
 const Game = () => {
 	const {state} = React.useContext(AuthContext)
 	const router = useRouter()
+	// GAME SCORE
 	const [round, setRound] = React.useState(1)
+	// GAME STATE
 	const [isGameOver, setIsGameOver] = React.useState(false)
 	const [question, setQuestion] = React.useState(generateQuestion());
 	console.log(question)
 
-
+	// IF THE USER IS NOT AUTHENTICATED REDIRECT HIM TO THE MAIN PAGE
 	// https://stackoverflow.com/a/62107926/8193864
 	React.useEffect(() => {
 		if (!state.account.uid) {
@@ -40,7 +44,7 @@ const Game = () => {
 		}
 	}, [])
 
-
+	// CHECK IF THE PRESSED BUTTON MATCHES THE ANSWER
 	const checkAnswer = (e) => {
 		if (e.target.innerText == question.answer) {
 			//	next round
@@ -56,6 +60,7 @@ const Game = () => {
 		}
 	}
 
+	// RESET THE GAME STATE
 	const startNewGame = () => {
 		setRound(1)
 		setIsGameOver(false);
