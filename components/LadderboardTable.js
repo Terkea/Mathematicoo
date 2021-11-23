@@ -6,13 +6,13 @@ import {firestore} from "../config/firebase";
 const LadderboardTable = () => {
 	const [users, setUsers] = React.useState([])
 	//https://firebase.google.com/docs/firestore/query-data/listen
-	React.useEffect(() => {
-		firestore.collection("profile").onSnapshot((querySnapshot) => {
+	React.useEffect(async () => {
+		firestore.collection("profile").orderBy('highestScore', 'desc').limit(5)
+			.onSnapshot((querySnapshot) => {
 			setUsers(querySnapshot.docs.map((doc) => {
 				return doc.data()
 			}))
 		})
-
 	}, [])
 
 	return (
